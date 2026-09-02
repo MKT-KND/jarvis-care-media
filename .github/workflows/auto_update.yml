@@ -59,7 +59,7 @@ jobs:
               <h1>医療・介護・福祉の暮らし知恵袋</h1>
               <div class="card">
                   {response.text}
-                  <div class="ad-space">【<amp-ad width="468" height="60" type="a8" data-aid="260902462812" data-wid="001" data-eno="01" data-mid="s00000023938001008000" data-mat="4BC1MM-DFFZZM-54PG-601S1" data-type="static"></amp-ad>】おすすめ福祉用具・介護便利グッズ</div>
+                  <div class="ad-space"><amp-ad width="468" height="60" type="a8" data-aid="260902462812" data-wid="001" data-eno="01" data-mid="s00000023938001008000" data-mat="4BC1MM-DFFZZM-54PG-601S1" data-type="static"></amp-ad>福祉用具・介護便利グッズ</div>
               </div>
           </body>
           </html>"""
