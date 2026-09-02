@@ -58,8 +58,17 @@ jobs:
           <body>
               <h1>医療・介護・福祉の暮らし知恵袋</h1>
               <div class="card">
-                  {response.text}
-                  <div class="ad-space">【収益化エリア】おすすめ福祉用具・介護便利グッズ</div>
+                  <div class="ad-space">
+   　　　　　　　 <p style="font-weight:bold; margin-bottom:10px;">おすすめの介護サービス・福祉用具</p>
+    　　　　　　　<!-- 1つ目の広告コード -->
+    　　　　　　　<a href="https://px.a8.net/svt/ejp?a8mat=4BC1MM+DFFZZM+54PG+601S1" rel="nofollow">
+<img border="0" width="468" height="60" alt="" src="https://www27.a8.net/svt/bgt?aid=260902462812&wid=001&eno=01&mid=s00000023938001008000&mc=1"></a>
+<img border="0" width="1" height="1" src="https://www14.a8.net/0.gif?a8mat=4BC1MM+DFFZZM+54PG+601S1" alt="">
+  　　　　　　　  <br><br>
+  　　　　　　　  <!-- 2つ目の広告コード -->
+   　　　　　　　 <a href="https://px.a8.net/svt/ejp?a8mat=4BC1MM+10BGOI+1WP2+1HONM9" rel="nofollow">
+<img border="0" width="468" height="60" alt="" src="https://www23.a8.net/svt/bgt?aid=260902462061&wid=001&eno=01&mid=s00000008903009017000&mc=1"></a>
+<img border="0" width="1" height="1" src="https://www19.a8.net/0.gif?a8mat=4BC1MM+10BGOI+1WP2+1HONM9" alt="">
               </div>
           </body>
           </html>"""
