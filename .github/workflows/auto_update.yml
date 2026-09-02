@@ -1,5 +1,6 @@
 name: JARVIS Auto Daily Update
 
+
 on:
   schedule:
     - cron: '0 21 * * *' # 毎日日本時間あさ6時に自動実行
