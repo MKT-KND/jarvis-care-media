@@ -58,14 +58,7 @@ jobs:
           <body>
               <h1>医療・介護・福祉の暮らし知恵袋</h1>
              <div class="ad-space">
-    <p style="font-weight:bold; margin-bottom:10px;">おすすめの介護サービス・福祉用具</p>
-    <a href="https://px.a8.net/svt/ejp?a8mat=4BC1MM+DFFZZM+54PG+601S1" rel="nofollow">
-<img border="0" width="468" height="60" alt="" src="https://www24.a8.net/svt/bgt?aid=260902462812&wid=001&eno=01&mid=s00000023938001008000&mc=1"></a>
-<img border="0" width="1" height="1" src="https://www10.a8.net/0.gif?a8mat=4BC1MM+DFFZZM+54PG+601S1" alt="">
-    <br><br>
-    <a href="https://px.a8.net/svt/ejp?a8mat=4BC1MM+10BGOI+1WP2+1HONM9" rel="nofollow">
-<img border="0" width="468" height="60" alt="" src="https://www24.a8.net/svt/bgt?aid=260902462061&wid=001&eno=01&mid=s00000008903009017000&mc=1"></a>
-<img border="0" width="1" height="1" src="https://www18.a8.net/0.gif?a8mat=4BC1MM+10BGOI+1WP2+1HONM9" alt="">
+    <amp-ad width="468" height="60" type="a8" data-aid="260902462812" data-wid="001" data-eno="01" data-mid="s00000023938001008000" data-mat="4BC1MM-DFFZZM-54PG-601S1" data-type="static"></amp-ad>
 </div>
           </body>
           </html>"""
