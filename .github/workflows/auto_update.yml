@@ -1,9 +1,10 @@
+YAML
 name: JARVIS Auto Daily Update
 
 on:
   schedule:
-    - cron: '0 21 * * *'
-  workflow_dispatch:
+    - cron: '0 21 * * *' # 毎日日本時間あさ6時に自動実行
+  workflow_dispatch: # 手動実行用
 
 jobs:
   update-content:
@@ -28,6 +29,13 @@ jobs:
           import os
           import google.generativeai as genai
 
+          # --- 1. A8.netの広告コードをここに貼り付けます ---
+          # 以下の中身をご自身のA8.net広告コードに書き換えてください。
+          ad_code = """
+          ここにA8.netでコピーした広告コードを貼り付け
+          """
+          # --------------------------------------------------
+
           genai.configure(api_key=os.environ["GEMINI_API_KEY"])
           model = genai.GenerativeModel('gemini-1.5-flash')
 
@@ -50,7 +58,7 @@ jobs:
                   header {{ background: #2c7a7b; color: white; padding: 20px; text-align: center; border-radius: 10px; margin-bottom: 20px; }}
                   h1 {{ margin: 0; font-size: 1.3rem; }}
                   .card {{ background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }}
-                  .ad-box {{ background: #edf2f7; border: 2px dashed #cbd5e0; padding: 15px; text-align: center; border-radius: 8px; font-size: 0.9rem; margin-top: 15px; }}
+                  .ad-box {{ background: #edf2f7; border: 2px dashed #cbd5e0; padding: 15px; text-align: center; border-radius: 8px; font-size: 0.9rem; margin-top: 15px; overflow-x: auto; }}
               </style>
           </head>
           <body>
@@ -63,8 +71,7 @@ jobs:
               <div class="card">
                   <div style="font-weight:bold; margin-bottom:10px; text-align:center;">💡 おすすめ福祉・介護サービス</div>
                   <div class="ad-box">
-                      <!-- ここにA8の広告コードを貼ります（今は空欄でOKです） -->
-                      【広告エリア】
+                      {ad_code}
                   </div>
               </div>
           </body>
