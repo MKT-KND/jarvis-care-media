@@ -10,26 +10,33 @@ AD_CODE = """
 """
 # --- 広告コードここまで ---
 
-# APIキーの存在確認
+print("=== START GENERATE SCRIPT ===")
+
+# 1. APIキーのチェック
 api_key = os.environ.get("GEMINI_API_KEY")
 if not api_key:
-    print("Error: GEMINI_API_KEY is not set.")
+    print("FATAL ERROR: GEMINI_API_KEY is empty or not found in environment variables!")
     sys.exit(1)
+else:
+    print(f"API Key detected (length: {len(api_key)})")
 
-genai.configure(api_key=api_key)
-
-# モデル設定
-model = genai.GenerativeModel('gemini-1.5-flash')
-
-prompt = "医療・介護・福祉に役立つ簡単なケアアドバイスを1つ作成してください。HTMLのタグ（<h3>と<p>、<ul>と<li>）を使って出力してください。"
-
+# 2. Geminiの初期化
 try:
+    genai.configure(api_key=api_key)
+    model = genai.GenerativeModel('gemini-1.5-flash')
+    
+    prompt = "医療・介護・福祉に役立つ簡単なケアアドバイスを1つ作成してください。HTMLのタグ（<h3>と<p>）を使って出力してください。"
+    print("Sending prompt to Gemini API...")
+    
     response = model.generate_content(prompt)
     ai_text = response.text
-except Exception as e:
-    print(f"Gemini API Error: {e}")
-    ai_text = f"<h3>本日のケアガイド</h3><p>現在AIコンテンツを準備中です。（更新エラー: {e}）</p>"
+    print("Successfully received response from Gemini API!")
 
+except Exception as e:
+    print(f"CRITICAL API ERROR: {type(e).__name__} - {e}")
+    ai_text = f"<h3>本日のケアガイド</h3><p>AI通信エラーが発生しました: {e}</p>"
+
+# 3. HTMLファイルの書き出し
 html_code = f"""<!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -64,4 +71,4 @@ html_code = f"""<!DOCTYPE html>
 with open('index.html', 'w', encoding='utf-8') as f:
     f.write(html_code)
 
-print("Successfully generated index.html")
+print("=== FINISHED GENERATE SCRIPT ===")
