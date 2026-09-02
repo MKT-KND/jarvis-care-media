@@ -23,7 +23,7 @@ else:
 # 2. Geminiの初期化
 try:
     genai.configure(api_key=api_key)
-    model = genai.GenerativeModel('gemini-1.5-flash')
+    model = genai.GenerativeModel('gemini-2.5-flash')
     
     prompt = "医療・介護・福祉に役立つ簡単なケアアドバイスを1つ作成してください。HTMLのタグ（<h3>と<p>）を使って出力してください。"
     print("Sending prompt to Gemini API...")
