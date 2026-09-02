@@ -1,0 +1,77 @@
+name: JARVIS Auto Daily Update
+
+on:
+  schedule:
+    - cron: '0 21 * * *' # 毎日日本時間あさ6時に自動実行
+  workflow_dispatch: # 手動実行用
+
+jobs:
+  update-content:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install google-generativeai
+
+      - name: Generate Content with Gemini
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python - <<EOF
+          import os
+          import google.generativeai as genai
+
+          genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+          model = genai.GenerativeModel('gemini-1.5-flash')
+
+          prompt = """
+          医療・介護・福祉に役立つワンポイント知恵袋記事を作成してください。
+          HTML形式（<div>...</div>）で出力し、以下の要素を含めてください。
+          ・今日から使える実践的なケア・アドバイス（タイトルと本文）
+          ・読者へのやさしいメッセージ
+          """
+
+          response = model.generate_content(prompt)
+          
+          content = f"""<!DOCTYPE html>
+          <html lang="ja">
+          <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>医療・介護・福祉の暮らし知恵袋 AI</title>
+              <style>
+                  body {{ font-family: sans-serif; background: #f4f7f6; margin: 0; padding: 15px; color: #333; }}
+                  .card {{ background: #fff; padding: 20px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 20px; }}
+                  h1 {{ color: #2c7a7b; font-size: 1.4rem; text-align: center; }}
+                  h2 {{ color: #2c7a7b; font-size: 1.1rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 5px; }}
+                  p {{ line-height: 1.6; font-size: 0.95rem; }}
+                  .ad-space {{ background: #edf2f7; border: 1px dashed #cbd5e0; padding: 15px; text-align: center; font-size: 0.85rem; color: #718096; border-radius: 8px; margin-top: 15px; }}
+              </style>
+          </head>
+          <body>
+              <h1>医療・介護・福祉の暮らし知恵袋</h1>
+              <div class="card">
+                  {response.text}
+                  <div class="ad-space">【収益化エリア】おすすめ福祉用具・介護便利グッズ</div>
+              </div>
+          </body>
+          </html>"""
+
+          with open('index.html', 'w', encoding='utf-8') as f:
+              f.write(content)
+          EOF
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "JARVIS-AI"
+          git config --global user.email "jarvis@example.com"
+          git add index.html
+          git commit -m "JARVIS: Auto update content" || exit 0
+          git push
