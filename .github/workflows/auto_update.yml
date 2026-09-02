@@ -31,7 +31,9 @@ jobs:
           # --- 1. A8.netの広告コードをここに貼り付けます ---
           # 以下の中身をご自身のA8.net広告コードに書き換えてください。
           ad_code = """
-          ここにA8.netでコピーした広告コードを貼り付け
+          <a href="https://px.a8.net/svt/ejp?a8mat=4BC1MM+DFFZZM+54PG+601S1" rel="nofollow">
+<img border="0" width="468" height="60" alt="" src="https://www20.a8.net/svt/bgt?aid=260902462812&wid=001&eno=01&mid=s00000023938001008000&mc=1"></a>
+<img border="0" width="1" height="1" src="https://www17.a8.net/0.gif?a8mat=4BC1MM+DFFZZM+54PG+601S1" alt="">
           """
           # --------------------------------------------------
 
