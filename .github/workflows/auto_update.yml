@@ -44,7 +44,7 @@ jobs:
               response = model.generate_content(prompt)
               ai_text = response.text
           except Exception as e:
-              ai_text = f"<h3>本日のケアガイド</h3><p>現在AIコンテンツを準備中です。（エラー詳細: {e}）</p>"
+              ai_text = f"<h3>本日のケアガイド</h3><p>現在コンテンツを準備中です。（エラー詳細: {e}）</p>"
 
           html_code = f"""<!DOCTYPE html>
           <html lang="ja">
