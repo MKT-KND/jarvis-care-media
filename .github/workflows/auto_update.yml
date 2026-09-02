@@ -1,11 +1,9 @@
 name: JARVIS Auto Daily Update
 
-
 on:
   schedule:
     - cron: '0 21 * * *' # 毎日日本時間あさ6時に自動実行
   workflow_dispatch: # 手動実行用
-
 
 jobs:
   update-content:
@@ -82,7 +80,8 @@ jobs:
                   <div class="card">
                       <div class="ad-title">💡 おすすめの介護サービス・福祉用具</div>
                       <div class="ad-space">
-                          <<amp-ad width="468" height="60" type="a8" data-aid="260902462812" data-wid="001" data-eno="01" data-mid="s00000023938001008000" data-mat="4BC1MM-DFFZZM-54PG-601S1" data-type="static"></amp-ad>>
+                          <!-- ここにA8.netでコピーした広告コードを貼り付けます -->
+                          【ここにA8.netの広告コード】
                       </div>
                   </div>
               </main>
